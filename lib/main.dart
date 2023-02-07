@@ -6,8 +6,10 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:movies/movies.dart';
 import 'package:provider/provider.dart';
 import 'package:search/search.dart';
+import 'package:tvseries/tvseries.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -24,39 +26,18 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(
-          create: (_) => di.locator<MovieListNotifier>(),
+        BlocProvider(
+          create: (_) => di.locator<MovieBloc>(),
         ),
-        ChangeNotifierProvider(
-          create: (_) => di.locator<MovieDetailNotifier>(),
-        ),
-        ChangeNotifierProvider(
-          create: (_) => di.locator<MovieSearchNotifier>(),
-        ),
-        ChangeNotifierProvider(
-          create: (_) => di.locator<TopRatedMoviesNotifier>(),
-        ),
-        ChangeNotifierProvider(
-          create: (_) => di.locator<PopularMoviesNotifier>(),
-        ),
-        ChangeNotifierProvider(
-          create: (_) => di.locator<WatchlistMovieNotifier>(),
-        ),
-        ChangeNotifierProvider(
-          create: (_) => di.locator<TvSeriesNotifier>(),
-        ),
-        ChangeNotifierProvider(
-          create: (_) => di.locator<TvSearchNotifier>(),
-        ),
-        ChangeNotifierProvider(
-          create: (_) => di.locator<TvSearchNotifier>(),
+        BlocProvider(
+          create: (_) => di.locator<TvBloc>(),
         ),
         BlocProvider(
           create: (_) => di.locator<SearchMovieBloc>(),
         ),
         BlocProvider(
           create: (_) => di.locator<SearchTvBloc>(),
-        )
+        ),
       ],
       child: MaterialApp(
         title: 'Flutter Demo',
@@ -103,9 +84,9 @@ class MyApp extends StatelessWidget {
                 settings: settings,
               );
             case SEASON_TV_ROUTE:
-              final tvSeries = settings.arguments as TvSeriesDetail;
+              final args = settings.arguments as SeasonTvPageArguments;
               return MaterialPageRoute(
-                builder: (_) => SeasonTvPage(tvSeries),
+                builder: (_) => SeasonTvPage(args.title, args.seasons),
                 settings: settings,
               );
             case SEARCH_TV_ROUTE:

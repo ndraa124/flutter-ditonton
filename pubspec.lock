@@ -351,6 +351,13 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.8.0"
+  movies:
+    dependency: "direct main"
+    description:
+      path: movies
+      relative: true
+    source: path
+    version: "0.0.1"
   nested:
     dependency: transitive
     description:
@@ -571,6 +578,13 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.4.16"
+  tvseries:
+    dependency: "direct main"
+    description:
+      path: tvseries
+      relative: true
+    source: path
+    version: "0.0.1"
   typed_data:
     dependency: transitive
     description:

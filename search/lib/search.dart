@@ -6,5 +6,3 @@ export 'presentation/bloc/movie/search_movie_bloc.dart';
 export 'presentation/bloc/tvseries/search_tv_bloc.dart';
 export 'presentation/pages/search_page.dart';
 export 'presentation/pages/search_tv_page.dart';
-export 'presentation/provider/movie_search_notifier.dart';
-export 'presentation/provider/tv_search_notifier.dart';

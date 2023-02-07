@@ -70,12 +70,20 @@ class DatabaseHelper {
 
   Future<int> insertWatchlist(MovieTable movie) async {
     final db = await database;
-    return await db!.insert(_tblWatchlist, movie.toJson());
+    return await db!.insert(
+      _tblWatchlist,
+      movie.toJson(),
+      conflictAlgorithm: ConflictAlgorithm.replace,
+    );
   }
 
   Future<int> insertWatchlistTv(TvTable tv) async {
     final db = await database;
-    return await db!.insert(_tblWatchlistTv, tv.toJson());
+    return await db!.insert(
+      _tblWatchlistTv,
+      tv.toJson(),
+      conflictAlgorithm: ConflictAlgorithm.replace,
+    );
   }
 
   Future<int> removeWatchlist(MovieTable movie) async {
@@ -148,7 +156,11 @@ class DatabaseHelper {
       for (final movie in movies) {
         final movieJson = movie.toJson();
         movieJson['category'] = category;
-        txn.insert(_tblCache, movieJson);
+        txn.insert(
+          _tblCache,
+          movieJson,
+          conflictAlgorithm: ConflictAlgorithm.replace,
+        );
       }
     });
   }

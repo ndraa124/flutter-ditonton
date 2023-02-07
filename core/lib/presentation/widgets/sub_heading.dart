@@ -23,7 +23,7 @@ class SubHeading extends StatelessWidget {
           style: kHeading6,
         ),
         isPressed == true
-            ? InkWell(
+            ? GestureDetector(
                 onTap: onTap,
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),

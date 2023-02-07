@@ -2,19 +2,18 @@ import 'package:core/core.dart';
 
 final testMovie = Movie(
   adult: false,
-  backdropPath: '/muth4OYamXf41G2evdrLEg8d3om.jpg',
-  genreIds: const [14, 28],
-  id: 557,
-  originalTitle: 'Spider-Man',
-  overview:
-  'After being bitten by a genetically altered spider, nerdy high school student Peter Parker is endowed with amazing powers to become the Amazing superhero known as Spider-Man.',
-  popularity: 60.441,
-  posterPath: '/rweIrveL43TaxUN0akQEaAXL6x0.jpg',
+  backdropPath: 'backdropPath',
+  genreIds: const [1, 2],
+  id: 1,
+  originalTitle: 'originalTitle',
+  overview: 'overview',
+  popularity: 1.0,
+  posterPath: 'posterPath',
   releaseDate: '2023-01-01',
-  title: 'Spider-Man',
+  title: 'title',
   video: false,
-  voteAverage: 7.2,
-  voteCount: 13507,
+  voteAverage: 1.0,
+  voteCount: 1,
 );
 
 final testMovieList = [testMovie];
@@ -30,7 +29,7 @@ const testMovieDetail = MovieDetail(
   releaseDate: '2023-01-01',
   runtime: 120,
   title: 'title',
-  voteAverage: 1,
+  voteAverage: 1.0,
   voteCount: 1,
 );
 

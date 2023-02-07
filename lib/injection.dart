@@ -1,60 +1,28 @@
 import 'package:core/core.dart';
 import 'package:data_connection_checker/data_connection_checker.dart';
 import 'package:get_it/get_it.dart';
+import 'package:movies/movies.dart';
 import 'package:search/search.dart';
+import 'package:tvseries/tvseries.dart';
 
 final locator = GetIt.instance;
 
 void init() {
-  // provider
+  // bloc
   locator.registerFactory(
-    () => MovieListNotifier(
-      getNowPlayingMovies: locator(),
-      getPopularMovies: locator(),
-      getTopRatedMovies: locator(),
-    ),
-  );
-  locator.registerFactory(
-    () => MovieDetailNotifier(
-      getMovieDetail: locator(),
-      getMovieRecommendations: locator(),
-      getWatchListStatus: locator(),
+    () => MovieBloc(
+      playingMovies: locator(),
+      popularMovies: locator(),
+      topRatedMovies: locator(),
+      detailMovies: locator(),
+      recommendationMovies: locator(),
+      watchlistMovies: locator(),
+      watchlistStatus: locator(),
       saveWatchlist: locator(),
       removeWatchlist: locator(),
     ),
   );
-  locator.registerFactory(
-    () => MovieSearchNotifier(
-      searchMovies: locator(),
-    ),
-  );
-  locator.registerFactory(
-    () => PopularMoviesNotifier(
-      locator(),
-    ),
-  );
-  locator.registerFactory(
-    () => TopRatedMoviesNotifier(
-      getTopRatedMovies: locator(),
-    ),
-  );
-  locator.registerFactory(
-    () => WatchlistMovieNotifier(
-      getWatchlistMovies: locator(),
-    ),
-  );
-  locator.registerFactory(
-    () => TvSeriesNotifier(
-      tvUseCase: locator(),
-    ),
-  );
-  locator.registerFactory(
-    () => TvSearchNotifier(
-      useCase: locator(),
-    ),
-  );
-
-  // bloc
+  locator.registerFactory(() => TvBloc(useCase: locator()));
   locator.registerFactory(() => SearchMovieBloc(locator()));
   locator.registerFactory(() => SearchTvBloc(locator()));
 

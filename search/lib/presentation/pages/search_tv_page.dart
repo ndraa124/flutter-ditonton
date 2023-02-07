@@ -2,6 +2,7 @@ import 'package:core/core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:search/search.dart';
+import 'package:tvseries/tvseries.dart';
 
 class SearchTvPage extends StatelessWidget {
   const SearchTvPage({

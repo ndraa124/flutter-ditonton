@@ -33,6 +33,9 @@ runTests() {
     echo $'\n'"=== running get package ==="
     flutter packages get
 
+    echo $'\n'"=== running rebuild runner ==="
+    flutter pub run build_runner build --delete-conflicting-outputs
+
     # run tests with coverage
     echo $'\n'"=== running tests in $1 ==="
     if grep flutter pubspec.yaml >/dev/null; then

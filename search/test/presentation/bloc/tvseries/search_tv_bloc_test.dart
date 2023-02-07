@@ -7,7 +7,7 @@ import 'package:mockito/mockito.dart';
 import 'package:search/search.dart';
 
 import '../../../dummy_data/dummy_objects.dart';
-import '../../provider/tv_search_notifier_test.mocks.dart';
+import 'search_tv_bloc_test.mocks.dart';
 
 @GenerateMocks([SearchTv])
 void main() {
