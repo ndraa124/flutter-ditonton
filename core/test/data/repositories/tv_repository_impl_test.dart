@@ -248,12 +248,12 @@ void main() {
           'should return format failure when the call to remote data source is unsuccessful',
           () async {
         // arrange
-        when(mockRemoteDataSource.getPopularTv())
+        when(mockRemoteDataSource.getTopRatedTv())
             .thenThrow(const FormatException());
         // act
-        final result = await repository.getPopularTv();
+        final result = await repository.getTopRatedTv();
         // assert
-        verify(mockRemoteDataSource.getPopularTv());
+        verify(mockRemoteDataSource.getTopRatedTv());
         expect(result, equals(const Left(FormatFailure(dataFailure))));
       });
     });
