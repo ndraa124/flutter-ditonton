@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:core/core.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -58,7 +60,33 @@ void main() {
         final result = await repository.getOnAiringTv();
         verify(mockRemoteDataSource.getOnAiringTv());
 
-        expect(result, equals(const Left(ServerFailure(''))));
+        expect(result, equals(const Left(ServerFailure(serverFailure))));
+      });
+
+      test(
+          'should return ssl failure when the call to remote data source is unsuccessful',
+          () async {
+        // arrange
+        when(mockRemoteDataSource.getOnAiringTv())
+            .thenThrow(const TlsException());
+        // act
+        final result = await repository.getOnAiringTv();
+        // assert
+        verify(mockRemoteDataSource.getOnAiringTv());
+        expect(result, equals(const Left(SSLFailure(sslFailure))));
+      });
+
+      test(
+          'should return format failure when the call to remote data source is unsuccessful',
+          () async {
+        // arrange
+        when(mockRemoteDataSource.getOnAiringTv())
+            .thenThrow(const FormatException());
+        // act
+        final result = await repository.getOnAiringTv();
+        // assert
+        verify(mockRemoteDataSource.getOnAiringTv());
+        expect(result, equals(const Left(FormatFailure(dataFailure))));
       });
     });
 
@@ -116,7 +144,33 @@ void main() {
         final result = await repository.getPopularTv();
         verify(mockRemoteDataSource.getPopularTv());
 
-        expect(result, equals(const Left(ServerFailure(''))));
+        expect(result, equals(const Left(ServerFailure(serverFailure))));
+      });
+
+      test(
+          'should return ssl failure when the call to remote data source is unsuccessful',
+          () async {
+        // arrange
+        when(mockRemoteDataSource.getPopularTv())
+            .thenThrow(const TlsException());
+        // act
+        final result = await repository.getPopularTv();
+        // assert
+        verify(mockRemoteDataSource.getPopularTv());
+        expect(result, equals(const Left(SSLFailure(sslFailure))));
+      });
+
+      test(
+          'should return format failure when the call to remote data source is unsuccessful',
+          () async {
+        // arrange
+        when(mockRemoteDataSource.getPopularTv())
+            .thenThrow(const FormatException());
+        // act
+        final result = await repository.getPopularTv();
+        // assert
+        verify(mockRemoteDataSource.getPopularTv());
+        expect(result, equals(const Left(FormatFailure(dataFailure))));
       });
     });
 
@@ -174,7 +228,33 @@ void main() {
         final result = await repository.getTopRatedTv();
         verify(mockRemoteDataSource.getTopRatedTv());
 
-        expect(result, equals(const Left(ServerFailure(''))));
+        expect(result, equals(const Left(ServerFailure(serverFailure))));
+      });
+
+      test(
+          'should return ssl failure when the call to remote data source is unsuccessful',
+          () async {
+        // arrange
+        when(mockRemoteDataSource.getTopRatedTv())
+            .thenThrow(const TlsException());
+        // act
+        final result = await repository.getTopRatedTv();
+        // assert
+        verify(mockRemoteDataSource.getTopRatedTv());
+        expect(result, equals(const Left(SSLFailure(sslFailure))));
+      });
+
+      test(
+          'should return format failure when the call to remote data source is unsuccessful',
+          () async {
+        // arrange
+        when(mockRemoteDataSource.getPopularTv())
+            .thenThrow(const FormatException());
+        // act
+        final result = await repository.getPopularTv();
+        // assert
+        verify(mockRemoteDataSource.getPopularTv());
+        expect(result, equals(const Left(FormatFailure(dataFailure))));
       });
     });
 
@@ -234,7 +314,33 @@ void main() {
         final result = await repository.getTvDetail(tId);
         verify(mockRemoteDataSource.getTvDetail(tId));
 
-        expect(result, equals(const Left(ServerFailure(''))));
+        expect(result, equals(const Left(ServerFailure(serverFailure))));
+      });
+
+      test(
+          'should return ssl failure when the call to remote data source is unsuccessful',
+          () async {
+        // arrange
+        when(mockRemoteDataSource.getTvDetail(tId))
+            .thenThrow(const TlsException());
+        // act
+        final result = await repository.getTvDetail(tId);
+        // assert
+        verify(mockRemoteDataSource.getTvDetail(tId));
+        expect(result, equals(const Left(SSLFailure(sslFailure))));
+      });
+
+      test(
+          'should return format failure when the call to remote data source is unsuccessful',
+          () async {
+        // arrange
+        when(mockRemoteDataSource.getTvDetail(tId))
+            .thenThrow(const FormatException());
+        // act
+        final result = await repository.getTvDetail(tId);
+        // assert
+        verify(mockRemoteDataSource.getTvDetail(tId));
+        expect(result, equals(const Left(FormatFailure(dataFailure))));
       });
     });
 
@@ -299,7 +405,33 @@ void main() {
         final result = await repository.getTvRecommendations(tId);
         verify(mockRemoteDataSource.getTvRecommendations(tId));
 
-        expect(result, equals(const Left(ServerFailure(''))));
+        expect(result, equals(const Left(ServerFailure(serverFailure))));
+      });
+
+      test(
+          'should return ssl failure when the call to remote data source is unsuccessful',
+          () async {
+        // arrange
+        when(mockRemoteDataSource.getTvRecommendations(tId))
+            .thenThrow(const TlsException());
+        // act
+        final result = await repository.getTvRecommendations(tId);
+        // assert
+        verify(mockRemoteDataSource.getTvRecommendations(tId));
+        expect(result, equals(const Left(SSLFailure(sslFailure))));
+      });
+
+      test(
+          'should return format failure when the call to remote data source is unsuccessful',
+          () async {
+        // arrange
+        when(mockRemoteDataSource.getTvRecommendations(tId))
+            .thenThrow(const FormatException());
+        // act
+        final result = await repository.getTvRecommendations(tId);
+        // assert
+        verify(mockRemoteDataSource.getTvRecommendations(tId));
+        expect(result, equals(const Left(FormatFailure(dataFailure))));
       });
     });
 
@@ -359,7 +491,33 @@ void main() {
         final result = await repository.searchTv(tQueryTv);
         verify(mockRemoteDataSource.searchTv(tQueryTv));
 
-        expect(result, equals(const Left(ServerFailure(''))));
+        expect(result, equals(const Left(ServerFailure(serverFailure))));
+      });
+
+      test(
+          'should return ssl failure when the call to remote data source is unsuccessful',
+          () async {
+        // arrange
+        when(mockRemoteDataSource.searchTv(tQueryTv))
+            .thenThrow(const TlsException());
+        // act
+        final result = await repository.searchTv(tQueryTv);
+        // assert
+        verify(mockRemoteDataSource.searchTv(tQueryTv));
+        expect(result, equals(const Left(SSLFailure(sslFailure))));
+      });
+
+      test(
+          'should return format failure when the call to remote data source is unsuccessful',
+          () async {
+        // arrange
+        when(mockRemoteDataSource.searchTv(tQueryTv))
+            .thenThrow(const FormatException());
+        // act
+        final result = await repository.searchTv(tQueryTv);
+        // assert
+        verify(mockRemoteDataSource.searchTv(tQueryTv));
+        expect(result, equals(const Left(FormatFailure(dataFailure))));
       });
     });
 

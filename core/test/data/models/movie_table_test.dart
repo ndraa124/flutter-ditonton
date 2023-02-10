@@ -1,9 +1,5 @@
-import 'dart:convert';
-
 import 'package:core/core.dart';
 import 'package:flutter_test/flutter_test.dart';
-
-import '../../json_reader.dart';
 
 void main() {
   const tGenre = Genre(

@@ -8,10 +8,8 @@ import 'dart:async' as _i5;
 import 'package:bloc/bloc.dart' as _i6;
 import 'package:core/core.dart' as _i4;
 import 'package:dartz/dartz.dart' as _i2;
-import 'package:flutter/src/widgets/navigator.dart' as _i7;
 import 'package:mockito/mockito.dart' as _i1;
 import 'package:movies/movies.dart' as _i3;
-import 'package:test_api/src/frontend/fake.dart' as _i8;
 
 // ignore_for_file: type=lint
 // ignore_for_file: avoid_redundant_argument_values
@@ -501,107 +499,4 @@ class MockMovieBloc extends _i1.Mock implements _i3.MovieBloc {
         ),
         returnValueForMissingStub: null,
       );
-}
-
-/// A class which mocks [NavigatorObserver].
-///
-/// See the documentation for Mockito's code generation for more information.
-class MockNavigatorObserver extends _i1.Mock implements _i7.NavigatorObserver {
-  MockNavigatorObserver() {
-    _i1.throwOnMissingStub(this);
-  }
-
-  @override
-  void didPush(
-    _i7.Route<dynamic>? route,
-    _i7.Route<dynamic>? previousRoute,
-  ) =>
-      super.noSuchMethod(
-        Invocation.method(
-          #didPush,
-          [
-            route,
-            previousRoute,
-          ],
-        ),
-        returnValueForMissingStub: null,
-      );
-  @override
-  void didPop(
-    _i7.Route<dynamic>? route,
-    _i7.Route<dynamic>? previousRoute,
-  ) =>
-      super.noSuchMethod(
-        Invocation.method(
-          #didPop,
-          [
-            route,
-            previousRoute,
-          ],
-        ),
-        returnValueForMissingStub: null,
-      );
-  @override
-  void didRemove(
-    _i7.Route<dynamic>? route,
-    _i7.Route<dynamic>? previousRoute,
-  ) =>
-      super.noSuchMethod(
-        Invocation.method(
-          #didRemove,
-          [
-            route,
-            previousRoute,
-          ],
-        ),
-        returnValueForMissingStub: null,
-      );
-  @override
-  void didReplace({
-    _i7.Route<dynamic>? newRoute,
-    _i7.Route<dynamic>? oldRoute,
-  }) =>
-      super.noSuchMethod(
-        Invocation.method(
-          #didReplace,
-          [],
-          {
-            #newRoute: newRoute,
-            #oldRoute: oldRoute,
-          },
-        ),
-        returnValueForMissingStub: null,
-      );
-  @override
-  void didStartUserGesture(
-    _i7.Route<dynamic>? route,
-    _i7.Route<dynamic>? previousRoute,
-  ) =>
-      super.noSuchMethod(
-        Invocation.method(
-          #didStartUserGesture,
-          [
-            route,
-            previousRoute,
-          ],
-        ),
-        returnValueForMissingStub: null,
-      );
-  @override
-  void didStopUserGesture() => super.noSuchMethod(
-        Invocation.method(
-          #didStopUserGesture,
-          [],
-        ),
-        returnValueForMissingStub: null,
-      );
-}
-
-/// A class which mocks [Fake].
-///
-/// See the documentation for Mockito's code generation for more information.
-class MockFakeRoute extends _i1.Mock implements _i8.Fake {
-  MockFakeRoute() {
-    _i1.throwOnMissingStub(this);
-  }
 }

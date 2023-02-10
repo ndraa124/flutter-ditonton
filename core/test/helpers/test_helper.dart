@@ -1,5 +1,6 @@
 import 'package:core/core.dart';
 import 'package:http/http.dart' as http;
+import 'package:http/io_client.dart';
 import 'package:mockito/annotations.dart';
 
 @GenerateMocks([
@@ -12,6 +13,7 @@ import 'package:mockito/annotations.dart';
   DatabaseHelper,
   NetworkInfo
 ], customMocks: [
-  MockSpec<http.Client>(as: #MockHttpClient)
+  MockSpec<http.Client>(as: #MockHttpClient),
+  MockSpec<IOClient>(as: #MockIoClient)
 ])
 void main() {}

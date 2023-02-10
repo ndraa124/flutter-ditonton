@@ -24,7 +24,11 @@ class MovieRepositoryImpl implements MovieRepository {
         );
         return Right(result.map((model) => model.toEntity()).toList());
       } on ServerException {
-        return const Left(ServerFailure(''));
+        return const Left(ServerFailure(serverFailure));
+      } on TlsException {
+        return const Left(SSLFailure(sslFailure));
+      } on FormatException {
+        return const Left(FormatFailure(dataFailure));
       }
     } else {
       try {
@@ -38,61 +42,91 @@ class MovieRepositoryImpl implements MovieRepository {
 
   @override
   Future<Either<Failure, MovieDetail>> getMovieDetail(int id) async {
-    try {
-      final result = await remoteDataSource.getMovieDetail(id);
-      return Right(result.toEntity());
-    } on ServerException {
-      return const Left(ServerFailure(''));
-    } on SocketException {
-      return const Left(ConnectionFailure('Failed to connect to the network'));
+    if (await networkInfo.isConnected) {
+      try {
+        final result = await remoteDataSource.getMovieDetail(id);
+        return Right(result.toEntity());
+      } on ServerException {
+        return const Left(ServerFailure(serverFailure));
+      } on TlsException {
+        return const Left(SSLFailure(sslFailure));
+      } on FormatException {
+        return const Left(FormatFailure(dataFailure));
+      }
+    } else {
+      return const Left(ConnectionFailure(connectionFailure));
     }
   }
 
   @override
   Future<Either<Failure, List<Movie>>> getMovieRecommendations(int id) async {
-    try {
-      final result = await remoteDataSource.getMovieRecommendations(id);
-      return Right(result.map((model) => model.toEntity()).toList());
-    } on ServerException {
-      return const Left(ServerFailure(''));
-    } on SocketException {
-      return const Left(ConnectionFailure('Failed to connect to the network'));
+    if (await networkInfo.isConnected) {
+      try {
+        final result = await remoteDataSource.getMovieRecommendations(id);
+        return Right(result.map((model) => model.toEntity()).toList());
+      } on ServerException {
+        return const Left(ServerFailure(serverFailure));
+      } on TlsException {
+        return const Left(SSLFailure(sslFailure));
+      } on FormatException {
+        return const Left(FormatFailure(dataFailure));
+      }
+    } else {
+      return const Left(ConnectionFailure(connectionFailure));
     }
   }
 
   @override
   Future<Either<Failure, List<Movie>>> getPopularMovies() async {
-    try {
-      final result = await remoteDataSource.getPopularMovies();
-      return Right(result.map((model) => model.toEntity()).toList());
-    } on ServerException {
-      return const Left(ServerFailure(''));
-    } on SocketException {
-      return const Left(ConnectionFailure('Failed to connect to the network'));
+    if (await networkInfo.isConnected) {
+      try {
+        final result = await remoteDataSource.getPopularMovies();
+        return Right(result.map((model) => model.toEntity()).toList());
+      } on ServerException {
+        return const Left(ServerFailure(serverFailure));
+      } on TlsException {
+        return const Left(SSLFailure(sslFailure));
+      } on FormatException {
+        return const Left(FormatFailure(dataFailure));
+      }
+    } else {
+      return const Left(ConnectionFailure(connectionFailure));
     }
   }
 
   @override
   Future<Either<Failure, List<Movie>>> getTopRatedMovies() async {
-    try {
-      final result = await remoteDataSource.getTopRatedMovies();
-      return Right(result.map((model) => model.toEntity()).toList());
-    } on ServerException {
-      return const Left(ServerFailure(''));
-    } on SocketException {
-      return const Left(ConnectionFailure('Failed to connect to the network'));
+    if (await networkInfo.isConnected) {
+      try {
+        final result = await remoteDataSource.getTopRatedMovies();
+        return Right(result.map((model) => model.toEntity()).toList());
+      } on ServerException {
+        return const Left(ServerFailure(serverFailure));
+      } on TlsException {
+        return const Left(SSLFailure(sslFailure));
+      } on FormatException {
+        return const Left(FormatFailure(dataFailure));
+      }
+    } else {
+      return const Left(ConnectionFailure(connectionFailure));
     }
   }
 
   @override
   Future<Either<Failure, List<Movie>>> searchMovies(String query) async {
-    try {
-      final result = await remoteDataSource.searchMovies(query);
-      return Right(result.map((model) => model.toEntity()).toList());
-    } on ServerException {
-      return const Left(ServerFailure(''));
-    } on SocketException {
-      return const Left(ConnectionFailure('Failed to connect to the network'));
+    if (await networkInfo.isConnected) {
+      try {
+        final result = await remoteDataSource.searchMovies(query);
+        return Right(result.map((model) => model.toEntity()).toList());
+      } on ServerException {
+        return const Left(ServerFailure(serverFailure));
+      } on TlsException {
+        return const Left(SSLFailure(sslFailure));
+      } on FormatException {
+        return const Left(FormatFailure(dataFailure));
+      }
+    } else {
+      return const Left(ConnectionFailure(connectionFailure));
     }
   }
 

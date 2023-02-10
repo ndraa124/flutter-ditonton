@@ -140,7 +140,7 @@ class _TvDetailContentState extends State<TvDetailContent> {
                                 } else if (state.recommendationState ==
                                     RequestState.success) {
                                   return TvSeriesList(
-                                      state.recommendationList, false);
+                                      state.recommendationList, true);
                                 } else if (state.recommendationState ==
                                     RequestState.empty) {
                                   return Center(

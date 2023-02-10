@@ -7,7 +7,7 @@ import 'package:tvseries/tvseries.dart';
 
 final locator = GetIt.instance;
 
-void init() {
+void initial() {
   // bloc
   locator.registerFactory(
     () => MovieBloc(
@@ -71,6 +71,5 @@ void init() {
   locator.registerLazySingleton<NetworkInfo>(() => NetworkInfoImpl(locator()));
 
   // external
-  locator.registerLazySingleton(() => HttpConfig().client);
   locator.registerLazySingleton(() => DataConnectionChecker());
 }
