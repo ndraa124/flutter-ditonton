@@ -84,18 +84,6 @@ runBuildRunner() {
     cd - > /dev/null
 }
 
-runAllGet() {
-    cd $1
-    if [ -f "pubspec.yaml" ]; then
-      echo "=== running get package in $1 ==="
-      flutter packages get
-
-      echo $'\n'"=== running build runner in $1 ==="
-      flutter pub run build_runner build --delete-conflicting-outputs
-    fi
-    cd - > /dev/null
-}
-
 runClean() {
   cd $1;
   if [ -f "pubspec.yaml" ]; then
@@ -142,7 +130,8 @@ case $1 in
     allDirs "runGet"
     ;;
   --get-runner)
-    allDirs "runAllGet"
+    allDirs "runGet"
+    allDirs "runBuildRunner"
     ;;
   --analyze)
     echo "=== running analyze package in $1 ==="

@@ -1,4 +1,4 @@
-import './domain/usecases/tv_series_test.dart' as tv_series;
+import 'domain/usecases/tv_series_test.dart' as tv_series;
 import './presentation/bloc/tv_bloc_test.dart' as tv_bloc;
 import './presentation/pages/detail_tv_page_test.dart' as detail_page;
 import './presentation/pages/home_tv_page_test.dart' as home_page;
