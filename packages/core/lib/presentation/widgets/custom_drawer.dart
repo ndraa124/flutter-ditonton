@@ -39,10 +39,10 @@ class _CustomDrawerState extends State<CustomDrawer>
               color: kPrussianBlue,
             ),
             currentAccountPicture: CircleAvatar(
-              backgroundImage: AssetImage('assets/circle-g.png'),
+              backgroundImage: AssetImage('assets/logo6.png'),
             ),
-            accountName: Text('Ditonton'),
-            accountEmail: Text('ditonton@dicoding.com'),
+            accountName: Text('NontonYuk'),
+            accountEmail: Text('idprogramming124@gmail.com'),
           ),
           const ListTile(
             leading: Icon(Icons.movie),

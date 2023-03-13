@@ -18,7 +18,7 @@ class AboutPage extends StatelessWidget {
                   color: kPrussianBlue,
                   child: Center(
                     child: Image.asset(
-                      'assets/circle-g.png',
+                      'assets/logo4.png',
                       width: 128,
                     ),
                   ),
@@ -27,9 +27,9 @@ class AboutPage extends StatelessWidget {
               Expanded(
                 child: Container(
                   padding: const EdgeInsets.all(32.0),
-                  color: kMikadoYellow,
+                  color: Colors.white,
                   child: const Text(
-                    'Ditonton merupakan sebuah aplikasi katalog film yang dikembangkan oleh Dicoding Indonesia sebagai contoh proyek aplikasi untuk kelas Menjadi Flutter Developer Expert.',
+                    'NontonYuk merupakan sebuah aplikasi katalog film yang di buat untuk mempelajari flutter secara expert dengan menerapkan SOLID principle untuk bisa di manage lebih baik lagi.',
                     style: TextStyle(color: Colors.black87, fontSize: 16),
                     textAlign: TextAlign.justify,
                   ),

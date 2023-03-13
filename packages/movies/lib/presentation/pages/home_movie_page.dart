@@ -25,7 +25,7 @@ class _HomeMoviePageState extends State<HomeMoviePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Ditonton'),
+        title: const Text('NontonYuk'),
         leading: const Icon(Icons.menu),
         actions: [
           IconButton(

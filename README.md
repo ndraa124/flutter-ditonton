@@ -1,6 +1,4 @@
-# flutter-ditonton
-
-Repository ini merupakan tugas akhir dari Flutter Developer Expert - DICODING.
+# Flutter-App
 
 ---
 
